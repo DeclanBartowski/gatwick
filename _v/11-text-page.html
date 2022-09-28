@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Gatwick</title>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/minibar.min.js"></script>
+    <link href="static/css/main.css?v1" rel="stylesheet" type="text/css" />
+    <link href="static/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body class="document">
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <symbol id="i-alert" viewBox="0 0 15 15">
+            <rect y="0.5" width="15" height="15" rx="7.5" fill="currentColor" />
+            <g stroke="white" fill="none">
+                <path d="M7.5 4L7.5 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M7.5 8L7.5 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 11 8">
+            <path d="M1 2.25L4.85714 6L10 1" stroke="currentColor" fill="none" stroke-width="2" />
+        </symbol>
+        <symbol id="i-clip" viewBox="0 0 10 16">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.35943 15.4622C6.5365 15.2868 7.60901 14.6877 8.37542 13.7772C9.14182 12.8668 9.54936 11.7078 9.52146 10.5181V4.68992C9.52146 4.50955 9.44981 4.33658 9.32227 4.20904C9.19473 4.0815 9.02175 4.00985 8.84139 4.00985C8.66102 4.00985 8.48804 4.0815 8.3605 4.20904C8.23297 4.33658 8.16132 4.50955 8.16132 4.68992V10.7017C8.16142 11.206 8.04936 11.704 7.83325 12.1596C7.61714 12.6153 7.30239 13.0171 6.91181 13.3361C6.52122 13.6551 6.06458 13.8832 5.57496 14.0039C5.08534 14.1246 4.575 14.1349 4.0809 14.0341C3.29874 13.8576 2.60125 13.417 2.10581 12.7866C1.61037 12.1561 1.34721 11.3742 1.36063 10.5725V3.90104C1.36035 3.60069 1.4264 3.30398 1.55405 3.0321C1.6817 2.76022 1.8678 2.51988 2.09907 2.32824C2.33034 2.1366 2.60107 1.99838 2.89193 1.92347C3.18279 1.84855 3.4866 1.83877 3.78167 1.89484C4.26001 1.99893 4.68722 2.26625 4.98999 2.65092C5.29277 3.03559 5.45224 3.51364 5.44104 4.00305V9.34159C5.44104 9.52196 5.36939 9.69494 5.24185 9.82247C5.11432 9.95001 4.94134 10.0217 4.76097 10.0217C4.58061 10.0217 4.40763 9.95001 4.28009 9.82247C4.15255 9.69494 4.0809 9.52196 4.0809 9.34159V5.26118C4.0809 5.08081 4.00925 4.90783 3.88172 4.7803C3.75418 4.65276 3.5812 4.58111 3.40083 4.58111C3.22047 4.58111 3.04749 4.65276 2.91995 4.7803C2.79241 4.90783 2.72076 5.08081 2.72076 5.26118V9.34159C2.71543 9.6448 2.77775 9.94538 2.90319 10.2215C3.02864 10.4976 3.21405 10.7422 3.44595 10.9376C3.67784 11.1331 3.95038 11.2743 4.24374 11.3511C4.5371 11.428 4.8439 11.4385 5.14181 11.3818C5.6267 11.2779 6.05922 11.0059 6.36289 10.6139C6.66656 10.2218 6.82181 9.73504 6.80118 9.23958V3.90104C6.80128 3.39676 6.68922 2.89876 6.47311 2.44313C6.257 1.9875 5.94225 1.58565 5.55167 1.26667C5.16109 0.947692 4.70444 0.719583 4.21482 0.598865C3.7252 0.478148 3.21486 0.467844 2.72076 0.568701C1.9386 0.74521 1.24111 1.18576 0.74567 1.81621C0.250227 2.44666 -0.0129281 3.22853 0.00048879 4.03025V10.7017C-0.00489984 11.3806 0.134972 12.0528 0.410718 12.6731C0.686464 13.2935 1.09171 13.8477 1.59925 14.2985C2.1068 14.7494 2.7049 15.0865 3.35344 15.2872C4.00198 15.4879 4.68594 15.5476 5.35943 15.4622Z" fill="currentColor" />
+        </symbol>
+        <symbol id="i-cross" viewBox="0 0 24 23">
+            <path d="M22.2132 1.00001L1 22.2132M22.8555 22.2132L1.64228 1" stroke="currentColor" fill="none" stroke-width="2" />
+        </symbol>
+        <symbol id="i-doc" viewBox="0 0 27 32">
+            <g fill="currentColor">
+                <path d="M4.49999 0.250017C2.2937 0.250017 0.439026 1.85005 0.0681131 3.96342C0.0232886 4.2194 0 4.48285 0 4.75002V27.25C0 29.7235 2.02652 31.75 4.5 31.75H6.75C7.04839 31.75 7.33449 31.6316 7.54543 31.4204C7.75659 31.2095 7.87502 30.9234 7.87502 30.625C7.87502 30.3266 7.75659 30.0405 7.54543 29.8296C7.33449 29.6184 7.04841 29.5 6.75 29.5H4.5C3.23415 29.5 2.25 28.5158 2.25 27.25V4.74997C2.25 4.6133 2.26274 4.48037 2.28516 4.35227C2.47083 3.29426 3.37084 2.49995 4.5 2.49995H16.875V5.87495C16.875 7.7253 18.3997 9.24995 20.25 9.24995H24.75V27.25C24.75 28.5158 23.7658 29.5 22.5 29.5H11.25C10.9516 29.5 10.6655 29.6184 10.4546 29.8295C10.2434 30.0405 10.125 30.3266 10.125 30.625C10.125 30.9234 10.2434 31.2095 10.4546 31.4204C10.6655 31.6316 10.9516 31.75 11.25 31.75H22.5C24.9735 31.75 27 29.7235 27 27.25V8.92037C27 8.11307 26.6788 7.33789 26.1079 6.76707L20.4829 1.14207C19.9121 0.571244 19.1369 0.25 18.3296 0.25L4.49999 0.250017ZM19.125 2.96582L23.1592 7.00002H20.25C19.6073 7.00002 19.125 6.51772 19.125 5.87502V2.96582Z" />
+                <path d="M7.87502 20.5C7.57663 20.5 7.29053 20.6184 7.07959 20.8296C6.86843 21.0405 6.75 21.3266 6.75 21.625C6.75 21.9234 6.86843 22.2095 7.07959 22.4205C7.29053 22.6316 7.57661 22.75 7.87502 22.75H19.125C19.4234 22.75 19.7095 22.6316 19.9205 22.4205C20.1316 22.2095 20.25 21.9234 20.25 21.625C20.25 21.3266 20.1316 21.0405 19.9205 20.8296C19.7095 20.6184 19.4234 20.5 19.125 20.5H7.87502Z" />
+                <path d="M7.87502 14.875C7.57663 14.875 7.29053 14.9934 7.07959 15.2046C6.86843 15.4155 6.75 15.7016 6.75 16C6.75 16.2984 6.86843 16.5845 7.07959 16.7955C7.29053 17.0066 7.57661 17.125 7.87502 17.125H19.125C19.4234 17.125 19.7095 17.0066 19.9205 16.7955C20.1316 16.5845 20.25 16.2984 20.25 16C20.25 15.7016 20.1316 15.4155 19.9205 15.2046C19.7095 14.9934 19.4234 14.875 19.125 14.875H7.87502Z" />
+            </g>
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 18 15">
+            <path d="M1.29688 6.5V12C1.29688 13.1046 2.19231 14 3.29688 14H14.2969C15.4014 14 16.2969 13.1046 16.2969 12V6.5M4.79688 6L8.79688 9M8.79688 9L12.7969 6M8.79688 9V0" stroke="currentColor" fill="none" stroke-width="2" />
+        </symbol>
+        <symbol id="i-key-down" viewBox="0 0 16 10">
+            <path d="M0.5 1L8 9L15.5 1" stroke="currentColor" fill="none" />
+        </symbol>
+        <symbol id="i-key-left" viewBox="0 0 11 19">
+            <path d="M9.96012 0.800781L0.914062 9.43565L9.96012 18.0705" stroke="currentColor" fill="none" />
+        </symbol>
+        <symbol id="i-key-right" viewBox="0 0 11 19">
+            <path d="M0.789885 0.800781L9.83594 9.43565L0.789885 18.0705" stroke="currentColor" fill="none" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 15 12">
+            <g fill="none" stroke="currentColor">
+                <rect x="0.5" y="0.984375" width="14" height="10.0294" rx="0.884083" />
+                <path d="M0.660156 1.22656L6.20684 5.63379C6.96305 6.23466 8.03374 6.23466 8.78995 5.63379L14.3366 1.22656" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 21 24">
+            <g stroke="currentColor" stroke-width="1.5" fill="none">
+                <path d="M19.379 10.0645C19.379 12.5933 17.7604 15.9125 15.6619 18.6616C14.6256 20.0192 13.5057 21.1929 12.4746 22.0189C11.959 22.432 11.479 22.7473 11.0546 22.9564C10.6227 23.1692 10.2929 23.25 10.0645 23.25C9.83609 23.25 9.50631 23.1692 9.07444 22.9564C8.65 22.7473 8.17001 22.432 7.65441 22.0189C6.62334 21.1929 5.50345 20.0192 4.46712 18.6616C2.3686 15.9125 0.75 12.5933 0.75 10.0645C0.75 4.92025 4.92025 0.75 10.0645 0.75C15.2088 0.75 19.379 4.92025 19.379 10.0645Z" />
+                <circle cx="10.067" cy="10.567" r="3.89516" />
+            </g>
+        </symbol>
+        <symbol id="i-plus" viewBox="0 0 15 14">
+            <path d="M0.523438 6.99875H7.30344M7.30344 6.99875H14.0834M7.30344 6.99875L7.30344 0.21875M7.30344 6.99875V13.7787" stroke="currentColor" stroke-width="1.5" />
+        </symbol>
+        <symbol id="i-next" viewBox="0 0 34 14">
+            <path d="M26.5974 1.5L32 7M32 7L26.5974 12.5M32 7H0" stroke="currentColor" fill="none" stroke-width="2" />
+        </symbol>
+        <symbol id="i-tel" viewBox="0 0 16 15">
+            <path d="M5.44744 10.0055C3.53898 8.12383 2.34945 6.13028 1.68619 4.7854C1.20662 3.81299 1.44898 2.6725 2.24179 1.9329C3.01828 1.20854 3.94944 0.446189 4.37666 0.502991C5.70564 0.679688 7.47825 2.92618 7.22945 3.67844C6.98064 4.43069 5.97716 5.43643 5.97716 5.43643C5.97716 5.43643 6.54441 6.48465 7.75735 7.69039C8.97028 8.89613 10.0241 9.42655 10.0241 9.42655C10.0241 9.42655 11.0276 8.42081 11.7823 8.16733C12.537 7.91384 15 9.97127 15 10.9771C15 11.3777 14.3761 12.2541 13.7502 13.0326C13.0118 13.9509 11.7682 14.2582 10.7131 13.7334C9.32036 13.0406 7.31197 11.8438 5.44744 10.0055Z" stroke="currentColor" fill="none" />
+        </symbol>
+    </svg>
+
+    <div class="container">
+
+        <div class="header">
+            <div class="wrapper">
+
+                <div class="topbar">
+                    <div class="topbar-logo">
+                        <a href=".">
+                            <img src="static/img/gatwick-logo.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="topnav">
+                        <div class="topnav-menu">
+                            <div class="menu-button" data-modal="#popup-menu">
+                                <span class="menu-button-icon"></span>
+                                <a href="#popup-menu" class="menu-button-text">Menu</a>
+                            </div>
+                        </div>
+                        <div class="topnav-list">
+                            <ul>
+                                <li class="active">
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">Serviсes</a>
+                                </li>
+                                <li>
+                                    <a href="#">About us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Clients</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contacts</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-email">
+                            <div class="topnav-email-pretitle">Please contact us at any time</div>
+                            <div class="topnav-email-content">
+                                <div class="topnav-email-icon">
+                                    <svg class="icon" width="15" height="11">
+                                        <use xlink:href="#i-mail"></use>
+                                    </svg>
+                                </div>
+                                <div class="topnav-email-link">
+                                    <a href="mailto:partner@gatwick.group">partner@gatwick.group</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topbar-action">
+                        <a href="#" class="button button__outlined button__wide" data-modal="#popup-1">
+                            <span class="button-icon">
+                                <svg class="icon" width="16" height="15">
+                                    <use xlink:href="#i-tel"></use>
+                                </svg>
+                            </span>
+                            <span class="button-text">Get in touch</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Article -->
+
+        <div class="main">
+
+            <div class="section section__light">
+
+                <div>
+                    <div class="wrapper">
+
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <span>Legal disclaimer</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="inner-wrapper">
+                            <div class="title title__default">
+                                <h1>Legal disclaimer</h1>
+                            </div>
+
+                            <div class="article">
+                                <div class="textpage">
+                                    <p>Quam, sodales justo ornare nulla dolor sed ipsum venenatis morbi quam, arcu sit amet, est. Elit. Venenatis molestie ipsum sit vestibulum risus dictumst. Interdum lacinia pulvinar dolor ut. Dui habitasse faucibus. Sit luctus sed consectetur ornare dapibus in ex. Dui risus non urna dapibus dui in justo nisi sit leo, ultricies. Ut. Ex. </p>
+                                    <p>Interdum lacinia pulvinar dolor ut. Dui habitasse faucibus. Sit luctus sed consectetur ornare dapibus in ex. Dui risus non urna dapibus dui in justo nisi sit leo, ultricies.</p>
+
+                                    <h2>subtitle1</h2>
+
+                                    <p>Quam, sodales justo ornare nulla dolor sed ipsum venenatis morbi quam, arcu sit amet, est. Elit. Venenatis molestie ipsum sit vestibulum risus dictumst. Interdum lacinia pulvinar dolor ut. Dui habitasse faucibus. Sit luctus sed consectetur ornare dapibus in ex. Dui risus non urna dapibus dui in justo nisi sit leo, ultricies. Ut. Ex. </p>
+
+                                    <h3>subtitle2</h3>
+
+                                    <ul>
+                                        <li>Quam, sodales justo ornare nulla dolor sed ipsum venenatis morbi quam, arcu sit amet, est. Elit. Venenatis molestie ipsum sit vestibulum risus dictumst. Interdum lacinia pulvinar dolor ut. Dui habitasse faucibus. Sit luctus sed consectetur ornare dapibus in ex. Dui risus non urna dapibus dui in justo nisi sit leo, ultricies. Ut. Ex.</li>
+                                        <li>Mattis consectetur luctus dictum libero, consectetur lacinia mattis mattis faucibus. Dictum. Molestie nunc platea sit eget et. Sed venenatis amet, amet, amet, cras vitae leo, dictum et. Odio.</li>
+                                    </ul>
+
+                                    <ol>
+                                        <li>Quam, sodales justo ornare nulla dolor sed ipsum venenatis morbi quam, arcu sit amet, est. Elit. Venenatis molestie ipsum sit vestibulum risus dictumst. Interdum lacinia pulvinar dolor ut. Dui habitasse faucibus. Sit luctus sed consectetur ornare dapibus in ex. Dui risus non urna dapibus dui in justo nisi sit leo, ultricies. Ut. Ex.</li>
+                                        <li>Mattis consectetur luctus dictum libero, consectetur lacinia mattis mattis faucibus. Dictum. Molestie nunc platea sit eget et. Sed venenatis amet, amet, amet, cras vitae leo, dictum et. Odio.</li>
+                                    </ol>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+
+
+            <div class="wrapper">
+                <div class="footer-clients">
+
+                    <div class="clients-bottom">
+                        <div class="clients-bottom_item">
+                            <img src="static/img/clients-thunes.svg" alt="" />
+                        </div>
+                        <div class="clients-bottom_item">
+                            <img src="static/img/clients-quan.svg" alt="" />
+                        </div>
+                        <div class="clients-bottom_item">
+                            <img src="static/img/clients-cloudbet.svg" alt="" />
+                        </div>
+                        <div class="clients-bottom_item">
+                            <img src="static/img/clients-venice.svg" alt="" />
+                        </div>
+                        <div class="clients-bottom_item">
+                            <img src="static/img/clients-cloudpay.svg" alt="" />
+                        </div>
+                    </div>
+
+                    <div class="clients-bottom-more">
+                        <a href="#" class="button button__outlined button__large">
+                            <span class="button-text">Other clients</span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="footer-form">
+                    <div class="inner-wrapper">
+                        <div class="title title__default">
+                            <h2>Get in Touch with Us</h2>
+                        </div>
+                        <form action="." method="post">
+                            <div class="formbox">
+                                <div class="formbox-cell">
+                                    <div class="textfield">
+                                        <input type="text" value="" placeholder="Your name" title="Your name" class="textfield-input" />
+                                        <label class="textfield-label">Your name</label>
+                                    </div>
+                                </div>
+                                <div class="formbox-cell">
+                                    <div class="textfield">
+                                        <input type="text" value="" placeholder="Your last name" title="Your last name" class="textfield-input" />
+                                        <label class="textfield-label">Your last name</label>
+                                    </div>
+                                </div>
+                                <div class="formbox-cell">
+                                    <div class="textfield">
+                                        <input type="tel" value="" placeholder="Telephone" title="Telephone" class="textfield-input" />
+                                        <label class="textfield-label">Telephone</label>
+                                    </div>
+                                </div>
+                                <div class="formbox-cell">
+                                    <div class="textfield">
+                                        <input type="email" value="" placeholder="Email" title="Email" class="textfield-input" />
+                                        <label class="textfield-label">Email</label>
+                                    </div>
+                                </div>
+                                <div class="formbox-cell formbox-cell__large">
+                                    <div class="textfield">
+                                        <input type="text" value="" placeholder="Message" title="Message" class="textfield-input" />
+                                        <label class="textfield-label">Message</label>
+                                    </div>
+                                </div>
+                                <div class="formbox-cell">
+                                    <button type="submit" class="button button__outlined">
+                                        <span class="button-text">Submit</span>
+                                        <span class="button-icon">
+                                            <svg class="icon" width="30" height="12">
+                                                <use xlink:href="#i-next"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="inner-wrapper">
+                    <div class="footer-contacts">
+                        <div class="footer-social">
+                            <div class="social">
+                                <div class="social-item">
+                                    <a href="#">
+                                        <img src="static/img/social-wa.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="social-item">
+                                    <a href="#">
+                                        <img src="static/img/social-tg.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="social-item">
+                                    <a href="#">
+                                        <img src="static/img/social-sk.svg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="social-item">
+                                    <a href="#">
+                                        <img src="static/img/social-cal.svg" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="emailbox-grid">
+                            <div>
+                                <div class="emailbox">
+                                    <div class="emailbox-pretitle">Please contact us at any time</div>
+                                    <div class="emailbox-link">
+                                        <a href="mailto:partner@gatwick.group">partner@gatwick.group</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="emailbox">
+                                    <div class="emailbox-pretitle">Support Requests</div>
+                                    <div class="emailbox-link">
+                                        <a href="mailto:operations@gatwick.group">operations@gatwick.group</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-menu">
+                        <div class="footer-menu-nav">
+                            <ul>
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">Serviсes</a>
+                                </li>
+                                <li>
+                                    <a href="#">About us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Clients</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contacts</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-menu-action">
+                            <a href="#" class="button button__outlined" data-modal="#popup-3">
+                                <span class="button-icon">
+                                    <svg class="icon" width="16" height="15">
+                                        <use xlink:href="#i-tel"></use>
+                                    </svg>
+                                </span>
+                                <span class="button-text">Schedule a call</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <div class="footer-info_item">
+                            <p>Gatwick AG LTD a United Kingdom based company with Registration number: 12854230<br />
+                                Gatwick HK Limited a Hong Kong based company with Registration number : 3144510</p>
+                        </div>
+                        <div class="footer-info_item">
+                            <p>Office One, 1 Coldbath Square, Farringdon, London, EC1R 5HL<br />
+                                UNIT 1411, 14/FLOOR, COSCO TOWER 183 QUEEN'S ROAD CENTRAL SHEUNG WAN HONG KONG</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottombar">
+                        <div class="bottombar">
+                            <div class="bottombar-copyright">&copy; Gatwick</div>
+                            <div class="bottombar-links">
+                                <ul>
+                                    <li>
+                                        <a href="#">Terms of use</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Terms of service</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Legal disclaimer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bottombar-author">
+                                <img src="static/img/webmedia-logo.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="popup popup__menu js-modal" id="popup-menu">
+        <div class="popup-inner">
+            <div class="popup-close js-modal-close">
+                <svg class="icon" width="24" height="24">
+                    <use xlink:href="#i-cross"></use>
+                </svg>
+            </div>
+            <div class="popup-header"></div>
+            <div class="popup-content">
+                <div class="menu-list">
+                    <ul>
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Services</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Bank Accounts</a>
+                                </li>
+                                <li>
+                                    <a href="#">Company formation</a>
+                                </li>
+                                <li>
+                                    <a href="#">International Licensing</a>
+                                </li>
+                                <li>
+                                    <a href="#">Services for Financial institutions</a>
+                                </li>
+                                <li>
+                                    <a href="#">Other services</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Clients</a>
+                        </li>
+                        <li>
+                            <a href="#">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <div class="menu-email">
+                    <div class="menu-email-pretitle">Please contact us at any time</div>
+                    <div class="menu-email-content">
+                        <div class="menu-email-icon">
+                            <svg class="icon" width="15" height="11">
+                                <use xlink:href="#i-mail"></use>
+                            </svg>
+                        </div>
+                        <div class="menu-email-link">
+                            <a href="mailto:partner@gatwick.group">partner@gatwick.group</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-action">
+                    <a href="#" class="button button__outlined button__large" data-modal="#popup-1">
+                        <span class="button-icon">
+                            <svg class="icon" width="16" height="15">
+                                <use xlink:href="#i-tel"></use>
+                            </svg>
+                        </span>
+                        <span class="button-text">Get in touch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup__modal js-modal" id="popup-1">
+        <div class="popup-inner">
+            <div class="popup-close js-modal-close">
+                <svg class="icon" width="15" height="15">
+                    <use xlink:href="#i-cross"></use>
+                </svg>
+            </div>
+            <form action="." method="post">
+                <div class="popup-header">
+                    <div class="popup-title">
+                        <div class="title title__small">
+                            <h2>Get in Touch with Us</h2>
+                        </div>
+                    </div>
+                    <div class="popup-subtitle">
+                        <p>Leave us your request and our specialists will contact you shortly</p>
+                    </div>
+                </div>
+                <div class="popup-content">
+                    <div class="popup-form">
+                        <div>
+                            <div class="textfield">
+                                <input type="text" value="" placeholder="Your name" title="Your name" class="textfield-input">
+                                <label class="textfield-label">Your name</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="textfield">
+                                <input type="tel" value="" placeholder="Telephone" title="Telephone" class="textfield-input">
+                                <label class="textfield-label">Telephone</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="textfield">
+                                <input type="text" value="" placeholder="Message" title="Message" class="textfield-input">
+                                <label class="textfield-label">Message</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <div>
+                        <button type="submit" class="button button__default button__wide" data-modal="#popup-2">
+                            <span class="button-text">Submit</span>
+                            <span class="button-icon">
+                                <svg class="icon" width="30" height="12">
+                                    <use xlink:href="#i-next"></use>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="popup-footer-note">
+                        <p>By clicking on the "Submit" button you consent to the processing of personal data.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup__modal js-modal" id="popup-2">
+        <div class="popup-inner">
+            <div class="popup-close js-modal-close">
+                <svg class="icon" width="15" height="15">
+                    <use xlink:href="#i-cross"></use>
+                </svg>
+            </div>
+            <div class="popup-success">
+                <div class="popup-success-icon">
+                    <svg class="icon" width="30" height="20">
+                        <use xlink:href="#i-check"></use>
+                    </svg>
+                </div>
+                <div class="popup-success-text">
+                    <div class="title title__small">
+                        <p>Your application has been successfully sent!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup__modal js-modal" id="popup-3">
+        <div class="popup-inner">
+            <div class="popup-close js-modal-close">
+                <svg class="icon" width="15" height="15">
+                    <use xlink:href="#i-cross"></use>
+                </svg>
+            </div>
+            <form action="." method="post">
+                <div class="popup-header">
+                    <div class="popup-title">
+                        <div class="title title__small">
+                            <h2>Schedule a call</h2>
+                        </div>
+                    </div>
+                    <div class="popup-subtitle">
+                        <p>Leave us your request and our specialists will contact you shortly</p>
+                    </div>
+                </div>
+                <div class="popup-content">
+                    <div class="popup-form">
+                        <div>
+                            <div class="textfield">
+                                <input type="text" value="" placeholder="Your name" title="Your name" class="textfield-input">
+                                <label class="textfield-label">Your name</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="textfield">
+                                <input type="tel" value="" placeholder="Telephone" title="Telephone" class="textfield-input">
+                                <label class="textfield-label">Telephone</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="textfield">
+                                <input type="text" value="" placeholder="Message" title="Message" class="textfield-input">
+                                <label class="textfield-label">Message</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <div>
+                        <button type="submit" class="button button__default button__wide" data-modal="#popup-2">
+                            <span class="button-text">Submit</span>
+                            <span class="button-icon">
+                                <svg class="icon" width="30" height="12">
+                                    <use xlink:href="#i-next"></use>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="popup-footer-note">
+                        <p>By clicking on the "Submit" button you consent to the processing of personal data.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup__modal js-modal" id="popup-4">
+        <div class="popup-inner">
+            <div class="popup-close js-modal-close">
+                <svg class="icon" width="15" height="15">
+                    <use xlink:href="#i-cross"></use>
+                </svg>
+            </div>
+            <form action="." method="post" enctype="multipart/form-data" novalidate>
+                <div class="popup-header">
+                    <div class="popup-title">
+                        <div class="title title__small">
+                            <h2>Upload your files here</h2>
+                        </div>
+                    </div>
+                    <div class="popup-subtitle">
+                        <p>Throw your files out the window</p>
+                    </div>
+                </div>
+                <div class="popup-content">
+
+                    <div class="upload js-file-drop-area">
+
+                        <div class="upload-icon">
+                            <img src="static/img/add-file.svg" alt="" />
+                        </div>
+
+                        <div class="upload-msg js-file-msg">Choose a file or drag it here</div>
+
+                        <input class="upload-input js-file-input" type="file" />
+
+
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <div>
+                        <button type="submit" class="button button__default button__wide" data-modal="#popup-2">
+                            <span class="button-text">Download</span>
+                            <span class="button-icon">
+                                <svg class="icon" width="30" height="12">
+                                    <use xlink:href="#i-next"></use>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="popup-footer-note">
+                        <p>By clicking on the "Download" button you consent to the processing of personal data.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup-overlay js-modal-close"></div>
+
+
+    <script src="static/js/smartScroll.min.js"></script>
+    <script src="static/js/demo.js"></script>
+
+    <script>
+        /*
+        async function init() {
+
+            if (CSS && 'paintWorklet' in CSS) {
+                await CSS.paintWorklet.addModule(
+                    "https://cdn.jsdelivr.net/gh/GoogleChromeLabs/houdini-samples/paint-worklet/ripple/paintworklet.js"
+                );
+            }
+        }
+        init();
+        */
+
+    </script>
+
+</body>
+
+</html>

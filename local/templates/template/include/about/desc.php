@@ -1,0 +1,1 @@
+                        <p>Gatwick was established as a small partnership in 1995, our founding partners catered to the needs of a small elite group of businessmen providing custom solutions allowing friends of the company to navigate the changing corporate landscape through the treacherous waters of digitalisation and into the 21st century. </p>
